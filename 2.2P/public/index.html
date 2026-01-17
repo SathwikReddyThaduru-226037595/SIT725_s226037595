@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Task 2.2P - Add Two Numbers</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="card">
+      <div class="header">
+        <div class="logo">S7</div>
+        <div>
+          <h1>Add Two Numbers (Using Express API)</h1>
+          <p class="helper">Enter two numbers below and click Calculate.</p>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input"><input id="numA" type="number" placeholder="Enter number A"></div>
+        <div class="input"><input id="numB" type="number" placeholder="Enter number B"></div>
+        <div><button id="calcBtn">Calculate</button></div>
+      </div>
+
+      <div id="result" aria-live="polite"></div>
+      <p class="helper">Tip: you can also call <code>/add?a=2&b=3</code> directly.</p>
+    </div>
+  </div>
+
+<script>
+function calculate() {
+    const a = document.getElementById("numA").value;
+    const b = document.getElementById("numB").value;
+
+    if (a === '' || b === '') {
+        document.getElementById("result").innerText = "Please enter both numbers.";
+        return;
+    }
+
+    const url = `/add?a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`;
+
+    fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error('Server responded with ' + res.status);
+            return res.json();
+        })
+        .then(data => {
+            document.getElementById("result").innerText =
+                `Result: ${data.result}`;
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById("result").innerText =
+                "Error calling the server";
+        });
+}
+
+document.getElementById('calcBtn').addEventListener('click', calculate);
+
+// allow Enter to submit on focused input
+document.querySelectorAll('input[type="number"]').forEach(el => {
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter') calculate();
+  });
+});
+</script>
+</body>
+</html>

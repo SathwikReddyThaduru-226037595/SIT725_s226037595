@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart QueueMate – Live Queue</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+    <h1>Smart QueueMate – Live Queue</h1>
+
+    <section class="queue-card">
+      <h2>Live Queue Number</h2>
+      <div id="queueNumber" class="queue-number">0</div>
+
+      <div class="actions">
+        <button id="joinQueueBtn" class="btn primary">Join Queue</button>
+        <button id="resetQueueBtn" class="btn danger">Reset Queue</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Socket.IO -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
