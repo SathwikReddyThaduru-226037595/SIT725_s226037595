@@ -5,11 +5,10 @@ const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
-/* Middleware */
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* Static files */
 app.use(express.static("public"));
 
 /* View */

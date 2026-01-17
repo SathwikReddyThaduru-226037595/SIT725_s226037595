@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const message = document.getElementById("message");
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // 🚫 STOP browser GET
+    e.preventDefault(); 
 
     message.textContent = "Submitting...";
     message.style.color = "#555";
