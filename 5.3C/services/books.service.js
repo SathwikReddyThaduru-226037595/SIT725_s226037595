@@ -2,7 +2,6 @@ const Book = require('../models/book.model');
 
 const getAllBooks = async () => {
   const books = await Book.find();
-
   return books.map(b => ({
     _id: b._id,
     title: b.title,
