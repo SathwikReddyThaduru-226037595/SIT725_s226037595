@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Books Catalog</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Books Catalog</h1>
+    <p>A tiny MVC example — read-only API + client</p>
+
+    <div class="controls">
+      <input id="search" placeholder="Search by title, author or summary…" />
+      <select id="sort">
+        <option value="default">Sort (default)</option>
+        <option value="year-asc">Year ↑</option>
+        <option value="year-desc">Year ↓</option>
+        <option value="genre">Genre</option>
+      </select>
+      <button id="dark-toggle" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="books-list" class="books-list"></section>
+
+    <nav class="pagination" id="pagination"></nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Books MVC — SIT725</p>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+  <script src="seed.js"></script>
+</body>
+</html>
